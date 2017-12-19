@@ -8,6 +8,7 @@ class confluent (
   $zookeeper                            = false,
   $schema_registry                      = false,
   $kafka_rest                           = false,
+  $control_center                       = false,
 
   #specific tuning, JVM/JMX and propertyfiles in particular
   $kafka_server_opts                    = '', #For instance, JVM options, excluding JVM opts
@@ -37,6 +38,9 @@ class confluent (
   $connect_avro_distributed_properties  = {},
   $connect_avro_standalone_properties   = {},
   $schema_registry_log4j_properties     = {},
+
+  $control_center_properties            = {},
+  $control_center_log4j_properties      = {},
 ) {
 
   #Not exepected to change
@@ -68,5 +72,5 @@ class confluent (
   #Separate components
   if $schema_registry { include ::confluent::schema_registry }
   if $kafka_rest { include ::confluent::kafka_rest }
-
+  if $control_center { include ::confluent::control_center }
 }
