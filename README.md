@@ -37,6 +37,7 @@ class { 'confluent':
   zookeeper       => true,
   kafka_rest      => true,
   schema_registry => true,
+  control_center  => true,
 }
 ````
 
@@ -104,6 +105,15 @@ class { 'confluent':
   kafka_rest                    => true,
   kafka_rest_properties         => {},
   kafka_rest_log4j_properties   => {},
+}
+````
+
+### Control Center
+````
+class { 'confluent':
+  control_center			=> true,
+  control_center_properties		=> {},
+  control_center_log4j_properties	=> {},
 }
 ````
 
